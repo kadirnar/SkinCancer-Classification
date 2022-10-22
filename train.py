@@ -20,7 +20,7 @@ class Trainer:
         self.test_data_loader = SkinCancerDataset(16, "dataset").get_test_loader()
 
     def get_model(self):
-        self.model = SkinCancerResnet18(2).get_model()
+        self.model = SkinCancerResnet18(self.num_classes).get_model()
         self.best_model_wts = self.model.state_dict()
 
     def hyperparameter_parameters(self):
