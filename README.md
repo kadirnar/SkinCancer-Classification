@@ -8,7 +8,7 @@
 
 </div>
 
-## 📚 Overview Resnet %99 Accuracy Skin Cancer Detection Model
+## 📚 Overview
 
 SkinCancer is a deep learning model for skin cancer classification. Resnet18 is used as the base model. Resnet18 is a 18-layer deep neural network. The model is trained on 80% of the data and tested on 20% of the data. The model has an accuracy of %99.
 ## Installation
