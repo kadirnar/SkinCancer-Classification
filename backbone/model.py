@@ -8,7 +8,7 @@ class SkinCancerResnet18(nn.Module):
         super().__init__()
         self.num_classes = num_classes
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model = models.resnet18(pretrained=True).to(self.device)
+        self.model = models.resnet18(pretrained=False).to(self.device)
     
     def model_parameters(self):
         for param in self.model.parameters():
@@ -17,9 +17,10 @@ class SkinCancerResnet18(nn.Module):
     
     def model_sequence(self):
         return nn.Sequential(
-            nn.Linear(512, 256),  
+            nn.Linear(512, 256), 
             nn.BatchNorm1d(256),  
             nn.LeakyReLU(),
+            nn.Dropout(0.3),
             nn.Linear(256, self.num_classes),
             nn.LogSoftmax(dim=1)
         )
